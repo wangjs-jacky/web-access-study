@@ -27,11 +27,9 @@ web-access-study/
 
 ## 研究主题
 
-- [ ] 三层通道调度机制
-- [ ] 浏览器 CDP 集成
-- [ ] 并行分治策略
-- [ ] Claude Code Skill 设计模式
+- [x] 架构与核心机制（三层通道调度 + CDP Proxy + 并行分治 + 站点经验）
 
 ## 笔记索引
 
-> 研究笔记将存放在 notes/ 目录，完成后更新此索引。
+- [web-access-guide.md](notes/web-access-guide.md) — 项目导读指南（产品认知、架构、核心概念、本地搭建）
+- [architecture-overview.md](notes/architecture-overview.md) — 架构与核心机制分析（设计哲学、四层调度、CDP 实现）
