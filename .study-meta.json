@@ -13,9 +13,48 @@
     "branch": "main",
     "commitSha": "6532d4da491fc6af2a7f3a161d7d7c69d67bca80"
   },
-  "topics": [],
+  "topics": [
+    {
+      "id": "architecture-and-core-mechanisms",
+      "name": "架构与核心机制",
+      "category": "architecture",
+      "tags": ["cdp-proxy", "scheduling", "parallel", "skill-design"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 1,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-20T11:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-001",
+          "text": "全面研究 Web Access 的架构设计和核心实现机制",
+          "createdAt": "2026-04-20T11:26:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/architecture-overview.md",
+          "createdAt": "2026-04-20T11:30:00+08:00"
+        },
+        {
+          "type": "guide",
+          "path": "notes/web-access-guide.md",
+          "createdAt": "2026-04-20T11:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
+    }
+  ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-20T11:26:00+08:00"
+    "lastUpdated": "2026-04-20T11:30:00+08:00"
   }
 }
