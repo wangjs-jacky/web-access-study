@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "2.0",
+  "managedBy": {
+    "skill": "repo-study",
+    "createdBySkill": true,
+    "createdAt": "2026-04-20T11:26:00+08:00"
+  },
+  "repo": {
+    "name": "web-access",
+    "url": "https://github.com/eze-is/web-access.git",
+    "githubUrl": "https://github.com/eze-is/web-access",
+    "owner": "eze-is",
+    "branch": "main",
+    "commitSha": "6532d4da491fc6af2a7f3a161d7d7c69d67bca80"
+  },
+  "topics": [],
+  "timestamps": {
+    "createdAt": "2026-04-20T11:26:00+08:00",
+    "lastUpdated": "2026-04-20T11:26:00+08:00"
+  }
+}
