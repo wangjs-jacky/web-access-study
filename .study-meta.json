@@ -51,10 +51,76 @@
         "hasSkillTemplate": false,
         "hasRunnableSkill": false
       }
+    },
+    {
+      "id": "cdp-proxy-implementation",
+      "name": "CDP Proxy 实现细节",
+      "category": "implementation",
+      "tags": ["cdp", "websocket", "http-api", "anti-detection"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-20T11:40:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-002",
+          "text": "深入分析 CDP Proxy 的端口发现、WebSocket 管理、HTTP API 端点、反风控机制",
+          "createdAt": "2026-04-20T11:40:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/cdp-proxy-deep-dive.md",
+          "createdAt": "2026-04-20T11:40:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
+    },
+    {
+      "id": "local-resource-and-experience",
+      "name": "本地资源检索与站点经验系统",
+      "category": "implementation",
+      "tags": ["chrome", "bookmarks", "history", "sqlite", "site-patterns"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-20T11:40:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-003",
+          "text": "分析 Chrome 书签/历史检索机制和站点经验匹配系统",
+          "createdAt": "2026-04-20T11:40:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/local-resource-and-experience.md",
+          "createdAt": "2026-04-20T11:40:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
     }
   ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-20T11:30:00+08:00"
+    "lastUpdated": "2026-04-20T11:40:00+08:00"
   }
 }
