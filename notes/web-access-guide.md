@@ -1,3 +1,11 @@
+---
+article_id: OBA-13568iiw
+tags: [study-note]
+type: note
+created_at: 2026-04-25
+updated_at: 2026-04-25
+---
+
 # Web Access 使用指南
 
 > 给 AI Agent 装上完整联网能力的 Skill — 三层通道调度 + 浏览器 CDP + 并行分治

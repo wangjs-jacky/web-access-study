@@ -1,3 +1,11 @@
+---
+article_id: OBA-xqxiufb6
+tags: [study-note]
+type: note
+created_at: 2026-04-25
+updated_at: 2026-04-25
+---
+
 # CDP Proxy 实现细节
 
 > 深入分析 cdp-proxy.mjs 的完整实现：端口发现、WebSocket 管理、HTTP API、反风控机制

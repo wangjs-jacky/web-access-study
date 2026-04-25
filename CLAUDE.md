@@ -37,3 +37,4 @@ web-access-study/
 - [architecture-overview.md](notes/architecture-overview.md) — 架构与核心机制分析（设计哲学、四层调度、CDP 实现）
 - [cdp-proxy-deep-dive.md](notes/cdp-proxy-deep-dive.md) — CDP Proxy 实现细节（端口发现、WebSocket、HTTP API 端点、反风控）
 - [local-resource-and-experience.md](notes/local-resource-and-experience.md) — 本地资源检索与经验系统（书签/历史检索、SQLite 查询、经验匹配）
+- [web-access-how-to-use-guide.md](notes/web-access-how-to-use-guide.md) — 实战教程：从安装到精通（环境配置 + 5 章实操，含实测数据）
