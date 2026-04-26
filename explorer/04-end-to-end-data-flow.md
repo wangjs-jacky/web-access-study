@@ -1,3 +1,7 @@
+---
+article_id: OBA-c1t8lviw
+---
+
 # web-access 端到端数据流分析
 
 > 追踪从用户发起请求到结果返回的完整链路，理解 web-access 各组件如何协作。

@@ -1,0 +1,44 @@
+---
+id: prompt-engineering
+title: Prompt Engineering 分析
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# SKILL.md Prompt Engineering 深度分析
+
+## 核心哲学：「像人一样思考」
+
+<CodeBlock language="markdown" copyable>{`**像人一样思考，兼顾高效与适应性的完成任务。**
+
+带着目标进入，边看边判断，遇到阻碍就解决——全程围绕「我要达成什么」做决策。`}</CodeBlock>
+
+目标导向 > 步骤导向。固定流程在多变环境中容易失效。
+
+## 四步决策框架
+
+```
+① 明确成功标准（什么算完成？）
+② 选择起点（从最小成本方式开始）
+③ 过程校验（每步结果都是证据）
+④ 完成判断（达标即停）
+```
+
+## 场景-工具矩阵（替代 if-else）
+
+| 场景 | 工具 |
+|------|------|
+| 搜索摘要或关键词 | WebSearch |
+| URL 已知，定向提取 | WebFetch |
+| 非公开内容/反爬 | 浏览器 CDP |
+| 需要登录态/交互 | 浏览器 CDP |
+
+<Tip type="success" title="设计精髓">
+场景描述让 AI 理解「什么时候用」，而不是记住「什么时候该用」。
+</Tip>
+
+## 三层通道调度
+
+发现层 → 提取层 → 交互层（低成本 → 高成本，低可靠 → 高可靠）
+
+<Checkpoint stepId="prompt-engineering" label="我已理解 Prompt 设计思路" />

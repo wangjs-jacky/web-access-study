@@ -1,10 +1,12 @@
 ---
+article_id: OBA-ab2jmo69
 article_id: OBA-ps2nbg2j
 tags: [study-note]
 type: note
 created_at: 2026-04-25
 updated_at: 2026-04-25
 ---
+article_id: OBA-ab2jmo69
 
 # Web Access 架构与核心机制
 

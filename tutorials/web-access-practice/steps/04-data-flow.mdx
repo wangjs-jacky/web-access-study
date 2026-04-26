@@ -1,0 +1,44 @@
+---
+id: data-flow
+title: 端到端数据流
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# 端到端数据流：一个请求的完整旅程
+
+## 请求链路全景图
+
+```
+用户请求 → Claude Code + SKILL.md → check-deps.mjs → cdp-proxy.mjs → Chrome CDP → 返回结果
+```
+
+## HTTP API 路由全景
+
+| 端点 | 功能 | 方法 |
+|------|------|------|
+| `/health` | 连接状态检查 | GET |
+| `/targets` | 列出所有 tab | GET |
+| `/new?url=xxx` | 创建新 tab | GET |
+| `/close?target` | 关闭 tab | GET |
+| `/navigate` | 导航到 URL | GET |
+| `/eval` | 执行 JS 表达式 | POST |
+| `/click` | JS 点击 | POST |
+| `/clickAt` | 真实鼠标点击 | POST |
+| `/setFiles` | 文件上传 | POST |
+| `/scroll` | 滚动页面 | GET |
+| `/screenshot` | 截图 | GET |
+
+## 三层通道调度
+
+| 层级 | 工具 | 适用场景 |
+|------|------|---------|
+| 发现层 | WebSearch | 关键词搜索 |
+| 提取层 | WebFetch / curl | 静态页面 |
+| 交互层 | CDP 浏览器 | 登录态、动态内容 |
+
+<Tip type="info" title="升级触发条件">
+多次搜索无质变 → 升级到一手来源。静态层无效 → 直接 CDP。需要登录态 → 直接 CDP。
+</Tip>
+
+<Checkpoint stepId="data-flow" label="我已理解完整的请求链路" />

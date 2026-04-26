@@ -1,0 +1,18 @@
+{
+  "title": "Web Access 实战入门",
+  "coverEmoji": "🌐",
+  "category": "AI Agent",
+  "difficulty": "中级",
+  "duration": "60 分钟",
+  "tags": ["Claude Code", "CDP", "浏览器自动化", "Skill"],
+  "featured": true,
+  "description": "从零开始掌握 Web Access：安装配置、核心概念、架构设计、CDP Proxy 实现到辅助系统，完整实战教程",
+  "steps": [
+    {"id": "quick-start", "title": "快速上手", "order": 1},
+    {"id": "core-concepts", "title": "核心概念", "order": 2},
+    {"id": "architecture", "title": "架构全貌", "order": 3},
+    {"id": "data-flow", "title": "端到端数据流", "order": 4},
+    {"id": "cdp-proxy", "title": "CDP Proxy 实现", "order": 5},
+    {"id": "supporting-systems", "title": "辅助系统", "order": 6}
+  ]
+}

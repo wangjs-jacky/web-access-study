@@ -1,3 +1,7 @@
+---
+article_id: OBA-yjjdxykg
+---
+
 # SKILL.md Prompt Engineering 深度分析
 
 > web-access 的 SKILL.md 展示了一种「不给 AI 固定流程，而是提供技术事实让它自主决策」的高阶 prompt 设计范式。

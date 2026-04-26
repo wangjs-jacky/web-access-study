@@ -1,5 +1,6 @@
 {
-  "schemaVersion": "2.1",
+  "schemaVersion": "2.2",
+  "surveyState": "completed",
   "managedBy": {
     "skill": "repo-study",
     "createdBySkill": true,
@@ -19,15 +20,19 @@
       "parentId": null,
       "name": "架构与核心机制",
       "category": "architecture",
-      "tags": ["cdp-proxy", "scheduling", "parallel", "skill-design"],
-      "state": "active",
+      "tags": [
+        "cdp-proxy",
+        "scheduling",
+        "parallel",
+        "skill-design"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
         "noteCount": 1,
         "guideCount": 1,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
-        "lastActivityAt": "2026-04-20T11:30:00+08:00"
+        "articleCount": 1,
+        "lastActivityAt": "2026-04-26T17:30:00+08:00"
       },
       "questions": [
         {
@@ -39,39 +44,43 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/architecture-overview.md",
+          "path": "explorer/architecture-overview.md",
           "createdAt": "2026-04-20T11:30:00+08:00"
         },
         {
           "type": "guide",
-          "path": "notes/web-access-guide.md",
+          "path": "explorer/web-access-guide.md",
           "createdAt": "2026-04-20T11:30:00+08:00"
         },
         {
           "type": "article",
           "path": "notes/web-access-article.md",
           "createdAt": "2026-04-26T17:30:00+08:00"
+        },
+        {
+          "type": "guide",
+          "path": "explorer/web-access-how-to-use-guide.md",
+          "createdAt": "2026-04-26T20:30:00+08:00"
         }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      ]
     },
     {
       "id": "cdp-proxy-implementation",
       "parentId": null,
       "name": "CDP Proxy 实现细节",
       "category": "implementation",
-      "tags": ["cdp", "websocket", "http-api", "anti-detection"],
-      "state": "active",
+      "tags": [
+        "cdp",
+        "websocket",
+        "http-api",
+        "anti-detection"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
-        "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
-        "lastActivityAt": "2026-04-20T11:40:00+08:00"
+        "noteCount": 2,
+        "demoCount": 2,
+        "lastActivityAt": "2026-04-26T17:41:00+08:00"
       },
       "questions": [
         {
@@ -83,41 +92,49 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/cdp-proxy-implementation.md",
+          "path": "explorer/cdp-proxy-implementation.md",
           "createdAt": "2026-04-20T11:40:00+08:00"
+        },
+        {
+          "type": "note",
+          "path": "explorer/cdp-proxy-code-walkthrough.md",
+          "createdAt": "2026-04-26T17:41:00+08:00"
         },
         {
           "type": "demo",
           "path": "demos/websocket-pending-map/",
-          "createdAt": "2026-04-26T16:29:00+08:00",
-          "features": [
-            { "name": "PendingMap 类（register + handleResponse）", "necessity": "must" },
-            { "name": "基本请求-响应匹配", "necessity": "must" },
-            { "name": "并发乱序响应正确匹配", "necessity": "must" },
-            { "name": "超时自动 reject", "necessity": "must" },
-            { "name": "错误响应处理", "necessity": "should" }
-          ]
+          "createdAt": "2026-04-26T16:29:00+08:00"
+        },
+        {
+          "type": "demo",
+          "path": "demos/chrome-port-discovery/",
+          "createdAt": "2026-04-26T16:30:00+08:00"
+        },
+        {
+          "type": "demo",
+          "path": "demos/http-to-ws-proxy/",
+          "createdAt": "2026-04-26T16:31:00+08:00"
         }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      ]
     },
     {
       "id": "local-resource-and-experience",
       "parentId": null,
       "name": "本地资源检索与站点经验系统",
       "category": "implementation",
-      "tags": ["chrome", "bookmarks", "history", "sqlite", "site-patterns"],
-      "state": "active",
+      "tags": [
+        "chrome",
+        "bookmarks",
+        "history",
+        "sqlite",
+        "site-patterns"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
         "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
-        "lastActivityAt": "2026-04-20T11:40:00+08:00"
+        "demoCount": 2,
+        "lastActivityAt": "2026-04-26T16:30:00+08:00"
       },
       "questions": [
         {
@@ -129,40 +146,36 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/local-resource-and-experience.md",
+          "path": "explorer/local-resource-and-experience.md",
           "createdAt": "2026-04-20T11:40:00+08:00"
         },
         {
           "type": "demo",
           "path": "demos/sqlite-crud/",
-          "createdAt": "2026-04-26T10:00:00+08:00",
-          "features": [
-            { "name": "建表 + 插入数据", "necessity": "must" },
-            { "name": "预编译语句查询", "necessity": "must" },
-            { "name": "事务批量插入", "necessity": "must" },
-            { "name": "UPDATE / DELETE", "necessity": "must" },
-            { "name": "聚合查询", "necessity": "should" }
-          ]
+          "createdAt": "2026-04-26T10:00:00+08:00"
+        },
+        {
+          "type": "demo",
+          "path": "demos/chrome-local-data/",
+          "createdAt": "2026-04-26T16:30:00+08:00"
         }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      ]
     },
     {
       "id": "skill-prompt-engineering",
       "parentId": "architecture-and-core-mechanisms",
       "name": "SKILL.md Prompt Engineering 设计模式",
       "category": "design",
-      "tags": ["prompt-engineering", "tradeoff-based", "decision-framework", "skill-design"],
-      "state": "active",
+      "tags": [
+        "prompt-engineering",
+        "tradeoff-based",
+        "decision-framework",
+        "skill-design"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
-        "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
+        "noteCount": 2,
         "lastActivityAt": "2026-04-26T18:30:00+08:00"
       },
       "questions": [
@@ -175,62 +188,31 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/skill-prompt-engineering.md",
+          "path": "explorer/skill-prompt-engineering.md",
           "createdAt": "2026-04-26T18:30:00+08:00"
-        }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
-    },
-    {
-      "id": "cdp-proxy-code-walkthrough",
-      "parentId": "cdp-proxy-implementation",
-      "name": "cdp-proxy.mjs 逐行精读",
-      "category": "implementation",
-      "tags": ["cdp", "websocket", "http-api", "code-walkthrough"],
-      "state": "active",
-      "progress": {
-        "questionCount": 1,
-        "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
-        "lastActivityAt": "2026-04-26T18:30:00+08:00"
-      },
-      "questions": [
-        {
-          "id": "q-005",
-          "text": "逐行精读 cdp-proxy.mjs 的完整实现",
-          "createdAt": "2026-04-26T18:00:00+08:00"
-        }
-      ],
-      "artifacts": [
+        },
         {
           "type": "note",
-          "path": "notes/cdp-proxy-code-walkthrough.md",
-          "createdAt": "2026-04-26T18:30:00+08:00"
+          "path": "notes/skill-design-tradeoff-based.md",
+          "createdAt": "2026-04-26T20:02:00+08:00"
         }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      ]
     },
     {
       "id": "supporting-scripts",
       "parentId": null,
       "name": "辅助脚本实现分析",
       "category": "implementation",
-      "tags": ["check-deps", "find-url", "match-site", "cross-platform"],
-      "state": "active",
+      "tags": [
+        "check-deps",
+        "find-url",
+        "match-site",
+        "cross-platform"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
         "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
         "lastActivityAt": "2026-04-26T18:30:00+08:00"
       },
       "questions": [
@@ -243,28 +225,26 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/supporting-scripts-analysis.md",
+          "path": "explorer/supporting-scripts-analysis.md",
           "createdAt": "2026-04-26T18:30:00+08:00"
         }
-      ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      ]
     },
     {
       "id": "end-to-end-data-flow",
       "parentId": "architecture-and-core-mechanisms",
       "name": "端到端数据流分析",
       "category": "architecture",
-      "tags": ["data-flow", "three-tier", "cdp-api", "component-communication"],
-      "state": "active",
+      "tags": [
+        "data-flow",
+        "three-tier",
+        "cdp-api",
+        "component-communication"
+      ],
+      "state": "completed",
       "progress": {
         "questionCount": 1,
         "noteCount": 1,
-        "guideCount": 0,
-        "skillTemplateCount": 0,
-        "runnableSkillCount": 0,
         "lastActivityAt": "2026-04-26T18:30:00+08:00"
       },
       "questions": [
@@ -277,14 +257,42 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/end-to-end-data-flow.md",
+          "path": "explorer/end-to-end-data-flow.md",
           "createdAt": "2026-04-26T18:30:00+08:00"
         }
+      ]
+    },
+    {
+      "id": "skill-exploration",
+      "parentId": "architecture-and-core-mechanisms",
+      "name": "Skills 技能探索",
+      "category": "practice",
+      "tags": [
+        "skill-testing",
+        "prompt-mapping",
+        "script-verification",
+        "gap-analysis"
       ],
-      "skillPackaging": {
-        "hasSkillTemplate": false,
-        "hasRunnableSkill": false
-      }
+      "state": "completed",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "lastActivityAt": "2026-04-26T20:47:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-008",
+          "text": "梳理用户 prompt 词与底层脚本的映射关系，逐个实测验证",
+          "createdAt": "2026-04-26T20:00:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/skill-exploration.md",
+          "createdAt": "2026-04-26T20:47:00+08:00"
+        }
+      ]
     }
   ],
   "backlog": [
@@ -294,7 +302,7 @@
       "type": "demo",
       "priority": "high",
       "status": "done",
-      "description": "Pending Map 异步请求-响应匹配模式，WebSocket 消息关联的核心实现",
+      "description": "Pending Map 异步请求-响应匹配模式",
       "sourceNote": "notes/cdp-proxy-implementation.md",
       "relatedTopic": "cdp-proxy-implementation",
       "demoPath": "demos/websocket-pending-map/"
@@ -306,7 +314,7 @@
       "priority": "high",
       "status": "done",
       "description": "DevToolsActivePort 多路径发现与回退策略",
-      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "sourceNote": "notes/cdp-proxy-implementation.md",
       "relatedTopic": "cdp-proxy-implementation",
       "demoPath": "demos/chrome-port-discovery/"
     },
@@ -317,8 +325,8 @@
       "priority": "high",
       "status": "done",
       "description": "不给 AI 固定流程，而是提供 tradeoff 事实让它自主决策的高阶 prompt 范式",
-      "sourceNote": "web-access/SKILL.md",
-      "relatedTopic": "architecture-and-core-mechanisms",
+      "sourceNote": "notes/skill-prompt-engineering.md",
+      "relatedTopic": "skill-prompt-engineering",
       "demoPath": "notes/skill-design-tradeoff-based.md"
     },
     {
@@ -361,7 +369,7 @@
       "priority": "medium",
       "status": "done",
       "description": "HTTP API 翻译为 WebSocket CDP 命令的完整代理实现",
-      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "sourceNote": "notes/cdp-proxy-implementation.md",
       "relatedTopic": "cdp-proxy-implementation",
       "demoPath": "demos/http-to-ws-proxy/"
     },
@@ -379,6 +387,6 @@
   ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-26T18:30:00+08:00"
+    "lastUpdated": "2026-04-26T20:47:00+08:00"
   }
 }

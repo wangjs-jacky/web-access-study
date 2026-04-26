@@ -1,3 +1,7 @@
+---
+article_id: OBA-rht35x6l
+---
+
 # 辅助脚本深度分析（check-deps + find-url + match-site）
 
 > 深入分析 web-access 三个辅助脚本的实现逻辑、协作关系和编程技巧。

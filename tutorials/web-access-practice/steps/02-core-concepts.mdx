@@ -1,0 +1,62 @@
+---
+id: core-concepts
+title: 核心概念
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# 核心概念：理解 Web Access 的设计思想
+
+## Web Access 是什么？
+
+Web Access 是一个 **Claude Code Skill**，安装后赋予 AI Agent 完整的联网能力。它不是独立运行的程序，而是一套 **思考框架 + 工具箱**。
+
+| 组件 | 形态 | 作用 |
+|------|------|------|
+| SKILL.md | Markdown 技能文件 | 定义浏览哲学、工具选择策略、CDP 操作指令 |
+| cdp-proxy.mjs | Node.js HTTP 服务器 | 将 HTTP 请求转换为 CDP 命令，操控 Chrome |
+| check-deps.mjs | Node.js 脚本 | 前置检查环境、启动 Proxy |
+| match-site.mjs | Node.js 脚本 | 按域名匹配站点经验文件 |
+| find-url.mjs | Node.js 脚本 | 从本地 Chrome 书签/历史检索 URL |
+
+## 核心概念 1：三层通道调度
+
+```
+用户请求 → 判断任务性质
+  ├─ 搜索发现信息来源 → WebSearch（最轻）
+  ├─ URL 已知，定向提取 → WebFetch / curl（中等）
+  ├─ 文章类页面 → Jina（节省 token）
+  └─ 需登录态/动态页面/反爬严格 → CDP（最重但最全能）
+```
+
+<Tip type="info" title="设计哲学">
+按场景选择最小代价的方式。简单搜索不启动浏览器，复杂交互才用 CDP。
+</Tip>
+
+## 核心概念 2：CDP Proxy
+
+Agent 只能通过 Bash 执行命令，不能直接操作 WebSocket。CDP Proxy 就是"翻译层"：
+
+```
+Agent (curl) → HTTP API → CDP Proxy → WebSocket → Chrome → 浏览器操作
+```
+
+直连用户日常 Chrome，天然携带所有登录态。
+
+## 核心概念 3：并行分治
+
+多目标时分发子 Agent 并行执行，通过不同 targetId 操作不同 tab，无竞态风险。
+
+## 核心概念 4：站点经验积累
+
+按域名存储操作经验（`references/site-patterns/{domain}.md`），跨 session 复用。
+
+## 核心概念 5：浏览哲学
+
+四步目标导向：① 明确目标 → ② 选择起点 → ③ 过程校验 → ④ 完成判断
+
+<Tip type="success" title="关键区别">
+传统操作手册告诉 AI "做什么"。Web Access 告诉 AI "为什么这样做"，让它理解 tradeoff 后自主决策。
+</Tip>
+
+<Checkpoint stepId="core-concepts" label="我已理解五大核心概念" />

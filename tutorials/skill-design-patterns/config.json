@@ -1,0 +1,15 @@
+{
+  "title": "Skill 设计模式：Tradeoff-based Prompt",
+  "coverEmoji": "🎨",
+  "category": "Prompt Engineering",
+  "difficulty": "高级",
+  "duration": "40 分钟",
+  "tags": ["Skill 设计", "Prompt Engineering", "AI Agent", "Tradeoff"],
+  "featured": true,
+  "description": "深入理解「技术事实」驱动的 Prompt 设计范式",
+  "steps": [
+    {"id": "prompt-engineering", "title": "Prompt Engineering 分析", "order": 1},
+    {"id": "tradeoff-design", "title": "Tradeoff-based 设计范式", "order": 2},
+    {"id": "skill-exploration", "title": "实测验证", "order": 3}
+  ]
+}

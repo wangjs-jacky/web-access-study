@@ -1,0 +1,48 @@
+---
+id: supporting-systems
+title: 辅助系统
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# 辅助系统：环境检查 + 本地检索 + 站点经验
+
+## check-deps.mjs — 环境守门员
+
+分层检查：Node.js 版本 → Chrome 端口发现 → Proxy 启动 → 站点经验列表。
+
+守护进程模式（detached + unref），快速路径优化（先检查后启动）。
+
+## find-url.mjs — 本地资源检索
+
+<CodeBlock language="bash" copyable>{`# 搜索书签
+node find-url.mjs 关键词 --only bookmarks --limit 5
+
+# 搜索历史
+node find-url.mjs 关键词 --only history --since 1d --limit 5`}</CodeBlock>
+
+核心技术：Chrome 运行时锁定 History 文件 → 复制到临时目录再查询。
+
+## 站点经验系统
+
+经验文件格式（Markdown + Frontmatter）：
+
+<CodeBlock language="markdown" copyable>{`---
+domain: example.com
+aliases: [示例]
+---
+## 平台特征
+## 有效模式
+## 已知陷阱`}</CodeBlock>
+
+<Tip type="warning" title="提示而非规则">
+经验标注发现日期，当作可能有效的提示而非保证。失败时回退通用模式。
+</Tip>
+
+| 子系统 | 核心功能 | 关键技术 |
+|--------|---------|---------|
+| check-deps | 环境守门 | 守护进程 + 快速路径 |
+| find-url | 本地检索 | SQLite 临时复制 |
+| match-site | 站点经验 | 正则别名匹配 |
+
+<Checkpoint stepId="supporting-systems" label="我已理解三个辅助子系统" />

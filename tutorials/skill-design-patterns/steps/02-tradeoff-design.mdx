@@ -1,0 +1,50 @@
+---
+id: tradeoff-design
+title: Tradeoff-based 设计范式
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# Tradeoff-based Prompt：技术事实驱动决策
+
+## 问题：固定流程为什么失败？
+
+```
+❌ 步骤1→步骤2→步骤3
+```
+
+小红书 WebFetch 拿不到内容但 prompt 说先搜索；搜索已够好但强制要求再用 WebFetch。根本原因：环境多变。
+
+## 解法：提供理解而非指令
+
+### 5 个关键设计模式
+
+**模式 1：场景-工具矩阵** — 用场景描述替代 if-else
+
+**模式 2：升级触发条件** — 用「质的改进」替代固定次数
+
+**模式 3：技术事实** — 用原理替代错误码
+
+**模式 4：经验双向流动** — 读取 + 写入，标注时效性
+
+**模式 5：语言中立化** — 描述「要什么」不暗示「怎么做」
+
+## Skill 模板
+
+<CodeBlock language="markdown" copyable>{`---
+name: your-skill
+version: "1.0.0"
+description: 一句话说明能力边界
+---
+## 核心理念 → 工具选择(场景矩阵) → 技术事实 → 经验积累 → 约束`}</CodeBlock>
+
+## 检查清单
+
+- 每个 tool 都有 tradeoff 说明
+- 场景描述替代 if-else
+- 技术事实替代错误码
+- 升级条件替代固定重试
+- 子 Agent 用中性词
+- 经验标注时效性
+
+<Checkpoint stepId="tradeoff-design" label="我已掌握 Tradeoff-based 设计范式" />

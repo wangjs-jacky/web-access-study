@@ -1,5 +1,6 @@
 ---
 title: "Web Access：一个 Skill 如何让 AI Agent 拥有完整联网能力"
+article_id: OBA-ly8sv8dd
 date: "2026-04-26"
 source_notes:
   - "notes/architecture-overview.md"

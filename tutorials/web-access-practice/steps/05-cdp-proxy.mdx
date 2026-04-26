@@ -1,0 +1,50 @@
+---
+id: cdp-proxy
+title: CDP Proxy 实现
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# CDP Proxy：HTTP 到 WebSocket 的翻译层
+
+## 启动与连接
+
+单实例保障 + Chrome 端口三层回退（DevToolsActivePort → 端口扫描 → 报错引导）。
+
+## 核心状态
+
+<CodeBlock language="javascript" copyable>{`let ws = null;                           // WebSocket 连接
+let cmdId = 0;                           // 递增命令 ID
+const pending = new Map();               // id → {resolve, timer}
+const sessions = new Map();              // targetId → sessionId
+const portGuardedSessions = new Set();   // 已启用反探测的 session`}</CodeBlock>
+
+## Pending Map：异步请求-响应匹配
+
+CDP 回复顺序不一定和发送一致。用唯一 ID 匹配：
+
+<CodeBlock language="javascript" copyable>{`function sendCDP(method, params, sessionId) {
+  return new Promise((resolve, reject) => {
+    const id = ++cmdId;
+    pending.set(id, { resolve, timer });
+    ws.send(JSON.stringify({ id, method, params }));
+  });
+}`}</CodeBlock>
+
+<Tip type="success" title="通用模式">
+适用于任何"发出去等回来"的异步场景——JSON-RPC、消息队列、WebSocket RPC。
+</Tip>
+
+## 三种点击策略
+
+| 策略 | CDP 命令 | 速度 | 适用场景 |
+|------|---------|------|---------|
+| `/click` | el.click() | 快 | 大多数场景 |
+| `/clickAt` | Input.dispatchMouseEvent | 中 | 需要真实手势 |
+| `/setFiles` | DOM.setFileInputFiles | 快 | 文件上传 |
+
+## 反风控
+
+拦截页面对 `127.0.0.1:{port}` 的探测请求，返回 ConnectionRefused。
+
+<Checkpoint stepId="cdp-proxy" label="我已理解 CDP Proxy 完整实现" />

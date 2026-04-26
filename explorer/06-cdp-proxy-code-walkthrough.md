@@ -1,3 +1,7 @@
+---
+article_id: OBA-ttzknduq
+---
+
 # cdp-proxy.mjs 逐行精读
 
 > 深入 601 行 CDP 代理服务器的每一个细节，理解它如何将 Chrome DevTools Protocol 封装为简洁的 HTTP API。

@@ -1,0 +1,79 @@
+---
+id: quick-start
+title: 快速上手
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# 快速上手：5 分钟控制你的浏览器
+
+Web Access 的核心能力是 **用 curl 命令控制你的 Chrome 浏览器**。本步骤完成环境配置，让你亲手验证这一点。
+
+## 1. 安装 Node.js 22+
+
+CDP Proxy 是 Node.js 脚本，需要 22+ 版本（内置原生 WebSocket 支持）。
+
+<CodeBlock language="bash" copyable>{`# 检查版本
+node --version
+
+# 如果低于 22，用 nvm 安装
+nvm install 22
+nvm use 22`}</CodeBlock>
+
+**验证**：版本号 >= 22.0.0
+
+## 2. 安装 web-access Skill
+
+<CodeBlock language="bash" copyable>{`# 克隆仓库
+git clone https://github.com/eze-is/web-access.git /tmp/web-access
+
+# 链接到 Claude Code skills 目录
+mkdir -p ~/.claude/skills/
+ln -sf /tmp/web-access ~/.claude/skills/web-access`}</CodeBlock>
+
+**验证**：
+
+<CodeBlock language="bash" copyable>{`ls ~/.claude/skills/web-access/SKILL.md`}</CodeBlock>
+
+## 3. 开启 Chrome 远程调试
+
+<Tip type="warning" title="需要手动操作">
+Chrome 默认不允许外部程序控制它。这一步必须在浏览器中操作。
+</Tip>
+
+1. 在 Chrome 地址栏输入 `chrome://inspect/#remote-debugging`
+2. 勾选 **"Allow remote debugging for this browser instance"**
+3. 可能需要重启 Chrome
+
+**验证**：
+
+<CodeBlock language="bash" copyable>{`cat ~/Library/Application\\ Support/Google/Chrome/DevToolsActivePort
+# 应输出两行：端口号 + WebSocket 路径`}</CodeBlock>
+
+## 4. 运行环境检查
+
+<CodeBlock language="bash" copyable>{`node ~/.claude/skills/web-access/scripts/check-deps.mjs`}</CodeBlock>
+
+<Tip type="info" title="预期输出">
+```
+node: ok (v24.x.x)
+chrome: ok (port 9222)
+proxy: ready
+```
+三项全部 ok/ready 即表示环境就绪。
+</Tip>
+
+## 5. 第一次 curl 操作
+
+<CodeBlock language="bash" copyable>{`# 创建新 tab
+curl -s "http://localhost:3456/new?url=https://example.com"
+
+# 获取页面标题（替换 TARGET_ID 为上面返回的 targetId）
+curl -s -X POST "http://localhost:3456/eval?target=TARGET_ID" -d 'document.title'
+
+# 关闭 tab
+curl -s "http://localhost:3456/close?target=TARGET_ID"`}</CodeBlock>
+
+如果你看到了 `"value":"Example Domain"` — 恭喜，你刚刚用命令行控制了浏览器！
+
+<Checkpoint stepId="quick-start" label="环境配置完成，curl 控制浏览器成功" />

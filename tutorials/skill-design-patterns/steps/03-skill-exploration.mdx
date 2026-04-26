@@ -1,0 +1,52 @@
+---
+id: skill-exploration
+title: 实测验证
+---
+
+import { CodeBlock, Tip, Checkpoint } from '@components';
+
+# 实测验证：从 Prompt 到脚本的完整链路
+
+## Prompt 速查表
+
+| 你会怎么说 | 背后触发什么 |
+|---|---|
+| "帮我搜索 XX" | WebSearch |
+| "打开 XX 网站" | check-deps → cdp-proxy → curl |
+| "我之前看过的 XX" | find-url.mjs |
+| "调研 A、B、C" | 子 Agent 并行开 tab |
+
+<Tip type="warning" title="前置条件">
+确保环境检查通过：`node ~/.claude/skills/web-access/scripts/check-deps.mjs`
+</Tip>
+
+## CDP 全流程验证
+
+<CodeBlock language="bash" copyable>{`# 一键验证脚本
+T=$(curl -s "http://localhost:3456/new?url=https://example.com" | grep -o '"targetId":"[^"]*"' | cut -d'"' -f4)
+echo "创建 tab: $T"
+echo "页面信息: $(curl -s "http://localhost:3456/info?target=$T")"
+echo "页面标题: $(curl -s -X POST "http://localhost:3456/eval?target=$T" -d 'document.title')"
+echo "截图: $(curl -s "http://localhost:3456/screenshot?target=$T&file=/tmp/web-access-test.png")"
+echo "关闭: $(curl -s "http://localhost:3456/close?target=$T")"`}</CodeBlock>
+
+## 交互能力速查
+
+| 操作 | 命令 |
+|------|------|
+| JS 点击 | `curl -s -X POST ".../click?target=ID" -d 'selector'` |
+| 真实鼠标 | `curl -s -X POST ".../clickAt?target=ID" -d 'selector'` |
+| 文件上传 | `curl -s -X POST ".../setFiles?target=ID" -d 'json'` |
+| 滚动 | `curl -s ".../scroll?target=ID&y=3000"` |
+
+## CDP API 清单
+
+| CDP 域 | 命令 | 对应 HTTP API |
+|--------|------|-------------|
+| Target | getTargets / createTarget | /targets / /new |
+| Page | navigate / captureScreenshot | /navigate / /screenshot |
+| Runtime | evaluate | /eval |
+| Input | dispatchMouseEvent | /clickAt |
+| DOM | setFileInputFiles | /setFiles |
+
+<Checkpoint stepId="skill-exploration" label="我已通过实测验证所有链路" />
