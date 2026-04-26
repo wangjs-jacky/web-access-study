@@ -34,6 +34,10 @@ web-access-study/
 - [x] 架构与核心机制（三层通道调度 + CDP Proxy + 并行分治 + 站点经验）
 - [x] CDP Proxy 实现细节（端口发现、WebSocket 管理、HTTP API、反风控）
 - [x] 本地资源检索与站点经验系统（Chrome 书签/历史、经验匹配）
+- [x] SKILL.md Prompt Engineering 设计模式（tradeoff 决策、四步框架、经验注入）
+- [x] cdp-proxy.mjs 逐行精读（完整代码走读、HTTP API 端点、Pending Map）
+- [x] 辅助脚本实现分析（check-deps + find-url + match-site）
+- [x] 端到端数据流分析（完整请求链路、组件通信、CDP API 清单）
 
 ## 笔记索引
 
@@ -44,6 +48,10 @@ web-access-study/
 - [web-access-how-to-use-guide.md](notes/web-access-how-to-use-guide.md) — 实战教程：从安装到精通（环境配置 + 5 章实操，含实测数据）
 - [skill-to-script-mapping.md](notes/skill-to-script-mapping.md) — Skill→Script 映射与验证（4 个脚本的触发路径、核心机制、运行状态）
 - [web-access-article.md](notes/web-access-article.md) — 技术展示文章：一个 Skill 如何让 AI Agent 拥有完整联网能力（6 段式叙事）
+- [skill-prompt-engineering.md](notes/skill-prompt-engineering.md) — SKILL.md Prompt Engineering 深度分析（tradeoff 决策、四步框架、经验注入、约束引导）
+- [cdp-proxy-code-walkthrough.md](notes/cdp-proxy-code-walkthrough.md) — cdp-proxy.mjs 逐行精读（端口发现、WebSocket、HTTP API、Pending Map、反风控）
+- [supporting-scripts-analysis.md](notes/supporting-scripts-analysis.md) — 辅助脚本分析（check-deps 环境检查、find-url 本地检索、match-site 站点匹配）
+- [end-to-end-data-flow.md](notes/end-to-end-data-flow.md) — 端到端数据流分析（请求链路、三层调度、组件通信协议、CDP API 清单）
 
 ## Demos
 

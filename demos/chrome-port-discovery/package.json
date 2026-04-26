@@ -1,0 +1,10 @@
+{
+  "name": "demo-chrome-port-discovery",
+  "version": "1.0.0",
+  "description": "演示 Chrome 调试端口的多层次发现机制",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}

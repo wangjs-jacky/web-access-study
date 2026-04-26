@@ -149,6 +149,142 @@
         "hasSkillTemplate": false,
         "hasRunnableSkill": false
       }
+    },
+    {
+      "id": "skill-prompt-engineering",
+      "parentId": "architecture-and-core-mechanisms",
+      "name": "SKILL.md Prompt Engineering 设计模式",
+      "category": "design",
+      "tags": ["prompt-engineering", "tradeoff-based", "decision-framework", "skill-design"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-26T18:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-004",
+          "text": "深度分析 SKILL.md 的 Prompt Engineering 设计模式",
+          "createdAt": "2026-04-26T18:00:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/skill-prompt-engineering.md",
+          "createdAt": "2026-04-26T18:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
+    },
+    {
+      "id": "cdp-proxy-code-walkthrough",
+      "parentId": "cdp-proxy-implementation",
+      "name": "cdp-proxy.mjs 逐行精读",
+      "category": "implementation",
+      "tags": ["cdp", "websocket", "http-api", "code-walkthrough"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-26T18:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-005",
+          "text": "逐行精读 cdp-proxy.mjs 的完整实现",
+          "createdAt": "2026-04-26T18:00:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/cdp-proxy-code-walkthrough.md",
+          "createdAt": "2026-04-26T18:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
+    },
+    {
+      "id": "supporting-scripts",
+      "parentId": null,
+      "name": "辅助脚本实现分析",
+      "category": "implementation",
+      "tags": ["check-deps", "find-url", "match-site", "cross-platform"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-26T18:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-006",
+          "text": "分析 check-deps + find-url + match-site 三个辅助脚本",
+          "createdAt": "2026-04-26T18:00:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/supporting-scripts-analysis.md",
+          "createdAt": "2026-04-26T18:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
+    },
+    {
+      "id": "end-to-end-data-flow",
+      "parentId": "architecture-and-core-mechanisms",
+      "name": "端到端数据流分析",
+      "category": "architecture",
+      "tags": ["data-flow", "three-tier", "cdp-api", "component-communication"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-04-26T18:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-007",
+          "text": "追踪完整请求链路和组件间通信模式",
+          "createdAt": "2026-04-26T18:00:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/end-to-end-data-flow.md",
+          "createdAt": "2026-04-26T18:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
     }
   ],
   "backlog": [
@@ -168,33 +304,33 @@
       "title": "Chrome 端口发现",
       "type": "demo",
       "priority": "high",
-      "status": "pending",
+      "status": "done",
       "description": "DevToolsActivePort 多路径发现与回退策略",
       "sourceNote": "notes/cdp-proxy-deep-dive.md",
       "relatedTopic": "cdp-proxy-implementation",
-      "demoPath": null
+      "demoPath": "demos/chrome-port-discovery/"
     },
     {
       "id": "bl-003",
       "title": "「技术事实」驱动的 Skill 设计",
       "type": "skill-design",
       "priority": "high",
-      "status": "pending",
+      "status": "done",
       "description": "不给 AI 固定流程，而是提供 tradeoff 事实让它自主决策的高阶 prompt 范式",
       "sourceNote": "web-access/SKILL.md",
       "relatedTopic": "architecture-and-core-mechanisms",
-      "demoPath": null
+      "demoPath": "notes/skill-design-tradeoff-based.md"
     },
     {
       "id": "bl-004",
       "title": "Chrome 本地数据访问",
       "type": "demo",
       "priority": "high",
-      "status": "pending",
+      "status": "done",
       "description": "跨平台 Chrome Profile 发现、SQLite 锁文件处理、WebKit 时间戳转换",
       "sourceNote": "notes/local-resource-and-experience.md",
       "relatedTopic": "local-resource-and-experience",
-      "demoPath": null
+      "demoPath": "demos/chrome-local-data/"
     },
     {
       "id": "bl-005",
@@ -223,11 +359,11 @@
       "title": "HTTP 到 WebSocket 代理",
       "type": "demo",
       "priority": "medium",
-      "status": "pending",
+      "status": "done",
       "description": "HTTP API 翻译为 WebSocket CDP 命令的完整代理实现",
       "sourceNote": "notes/cdp-proxy-deep-dive.md",
       "relatedTopic": "cdp-proxy-implementation",
-      "demoPath": null
+      "demoPath": "demos/http-to-ws-proxy/"
     },
     {
       "id": "bl-008",
@@ -243,6 +379,6 @@
   ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-26T10:00:00+08:00"
+    "lastUpdated": "2026-04-26T18:30:00+08:00"
   }
 }

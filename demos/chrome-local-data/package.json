@@ -1,0 +1,10 @@
+{
+  "name": "demo-chrome-local-data",
+  "version": "1.0.0",
+  "description": "演示跨平台 Chrome 本地数据访问：Profile 发现、SQLite 查询、WebKit 时间戳转换",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}

@@ -255,7 +255,7 @@ curl -s -X POST "http://localhost:3456/eval?target=9846B5405A771F10EB786652FBEF5
 **输出**：
 
 ```json
-{"value":"Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.\n\nLearn more"}
+{"value":"Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use of operations.\n\nLearn more"}
 ```
 
 ### 1.6 导航到另一个 URL
