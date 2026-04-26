@@ -9,7 +9,7 @@ updated_at: 2026-04-25
 # Web Access 实战教程：从安装到精通
 
 > **本教程分两个阶段**：
-> - **Phase 1**：环境配置引导（需要人工操作）
+> - **Phase 1**：环境配置引导（需要人工操作，5 分钟）
 > - **Phase 2**：逐章实操教程（含实测数据）
 >
 > **必须严格按顺序执行**：Phase 1 全部完成后，才能进入 Phase 2。
@@ -18,11 +18,17 @@ updated_at: 2026-04-25
 
 # Phase 1：环境配置引导
 
-Web Access 是一个 Claude Code Skill，安装后赋予 AI Agent 完整的联网和浏览器操作能力。下面一步步带你完成环境配置。
+> **为什么要配置这些？**
+> Web Access 的核心能力是"用 curl 控制你的 Chrome 浏览器"。要做到这一点，需要：
+> 1. **Node.js** — 运行 CDP Proxy（HTTP→WebSocket 翻译层）
+> 2. **Chrome 远程调试** — 让 Proxy 能连接你的浏览器
+> 3. **web-access Skill** — 安装到 Claude Code，让 AI 知道怎么用这些工具
+>
+> 配置完成后，你就能用一条 `curl` 命令让浏览器执行任何操作。
 
 ## 1.1 安装 Node.js 22+
 
-Web Access 的辅助脚本需要 Node.js 22+（使用原生 WebSocket API）。
+> **为什么需要它？** CDP Proxy 是一个 Node.js 脚本，它需要 Node.js 22+ 因为这个版本内置了原生 WebSocket 支持，不需要额外安装依赖。
 
 **操作步骤**：
 
@@ -72,7 +78,7 @@ ls ~/.claude/skills/web-access/SKILL.md
 
 ## 1.3 开启 Chrome 远程调试
 
-Web Access 通过 Chrome DevTools Protocol 直连你的日常 Chrome 浏览器，需要先开启远程调试。
+> **为什么需要这一步？** Chrome 默认不允许外部程序控制它。开启远程调试后，Chrome 会在一个本地端口上监听指令。CDP Proxy 就是连这个端口来操控浏览器的。
 
 ⚠️ **这一步需要手动操作**：
 
@@ -146,6 +152,7 @@ node ~/.claude/skills/web-access/scripts/check-deps.mjs  # ☐ 三项全部 ok
 
 ## 第 1 章：CDP 基础操作 — Tab 生命周期
 
+> **你为什么会在这**：环境配好了，现在要验证"curl 真的能控制浏览器"。
 > **认证模式**：public（无需登录）
 > **前置条件**：CDP Proxy 已运行
 
@@ -310,6 +317,7 @@ curl -s "http://localhost:3456/close?target=9846B5405A771F10EB786652FBEF5244"
 
 ## 第 2 章：页面交互 — 点击、滚动、截图
 
+> **你为什么会在这**：上一章你学会了用 curl 查看和导航页面。但"看"不够，还需要"操作"——点击按钮、滚动页面、截图保存。
 > **认证模式**：public（无需登录）
 > **前置条件**：第 1 章完成
 
@@ -495,6 +503,7 @@ curl -s -X POST "http://localhost:3456/setFiles?target=TARGET_ID" \
 
 ## 第 3 章：本地资源检索 — 搜索书签和历史
 
+> **你为什么会在这**：你已经能用 curl 操作浏览器了。但你的 Chrome 里还有另一个"金矿"——你自己的书签和浏览历史。这些数据是搜索引擎搜不到的。
 > **认证模式**：local（访问本地 Chrome 数据）
 > **前置条件**：sqlite3 已安装
 
@@ -626,6 +635,7 @@ node ~/.claude/skills/web-access/scripts/find-url.mjs github --limit 3
 
 ## 第 4 章：高级技巧 — eval 深度用法与媒体提取
 
+> **你为什么会在这**：前 3 章你用了 `/eval` 执行简单 JS（获取标题、提取文本）。但 `/eval` 能做的远不止这些——它能穿透 Shadow DOM、操控视频元素、提取任何页面数据。
 > **认证模式**：public
 > **前置条件**：第 1-2 章完成
 
@@ -700,6 +710,7 @@ curl -s "http://localhost:3456/screenshot?target=TARGET_ID&file=/tmp/video-frame
 
 ## 第 5 章：实战模式 — 并行分治与站点经验
 
+> **你为什么会在这**：你已经掌握了所有基础操作。现在要解决的是效率问题——怎么同时调研 5 个网站而不是一个一个来？怎么记住每个网站的操作技巧？
 > **前置条件**：前 4 章完成
 
 本章介绍两个高级模式：并行分治（多 Agent 并行调研）和站点经验积累。

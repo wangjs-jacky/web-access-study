@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "2.0",
+  "schemaVersion": "2.1",
   "managedBy": {
     "skill": "repo-study",
     "createdBySkill": true,
@@ -16,6 +16,7 @@
   "topics": [
     {
       "id": "architecture-and-core-mechanisms",
+      "parentId": null,
       "name": "架构与核心机制",
       "category": "architecture",
       "tags": ["cdp-proxy", "scheduling", "parallel", "skill-design"],
@@ -54,6 +55,7 @@
     },
     {
       "id": "cdp-proxy-implementation",
+      "parentId": null,
       "name": "CDP Proxy 实现细节",
       "category": "implementation",
       "tags": ["cdp", "websocket", "http-api", "anti-detection"],
@@ -87,6 +89,7 @@
     },
     {
       "id": "local-resource-and-experience",
+      "parentId": null,
       "name": "本地资源检索与站点经验系统",
       "category": "implementation",
       "tags": ["chrome", "bookmarks", "history", "sqlite", "site-patterns"],
@@ -111,6 +114,18 @@
           "type": "note",
           "path": "notes/local-resource-and-experience.md",
           "createdAt": "2026-04-20T11:40:00+08:00"
+        },
+        {
+          "type": "demo",
+          "path": "demos/sqlite-crud/",
+          "createdAt": "2026-04-26T10:00:00+08:00",
+          "features": [
+            { "name": "建表 + 插入数据", "necessity": "must" },
+            { "name": "预编译语句查询", "necessity": "must" },
+            { "name": "事务批量插入", "necessity": "must" },
+            { "name": "UPDATE / DELETE", "necessity": "must" },
+            { "name": "聚合查询", "necessity": "should" }
+          ]
         }
       ],
       "skillPackaging": {
@@ -119,8 +134,98 @@
       }
     }
   ],
+  "backlog": [
+    {
+      "id": "bl-001",
+      "title": "WebSocket Pending Map",
+      "type": "demo",
+      "priority": "high",
+      "status": "pending",
+      "description": "Pending Map 异步请求-响应匹配模式，WebSocket 消息关联的核心实现",
+      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "relatedTopic": "cdp-proxy-implementation",
+      "demoPath": null
+    },
+    {
+      "id": "bl-002",
+      "title": "Chrome 端口发现",
+      "type": "demo",
+      "priority": "high",
+      "status": "pending",
+      "description": "DevToolsActivePort 多路径发现与回退策略",
+      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "relatedTopic": "cdp-proxy-implementation",
+      "demoPath": null
+    },
+    {
+      "id": "bl-003",
+      "title": "「技术事实」驱动的 Skill 设计",
+      "type": "skill-design",
+      "priority": "high",
+      "status": "pending",
+      "description": "不给 AI 固定流程，而是提供 tradeoff 事实让它自主决策的高阶 prompt 范式",
+      "sourceNote": "web-access/SKILL.md",
+      "relatedTopic": "architecture-and-core-mechanisms",
+      "demoPath": null
+    },
+    {
+      "id": "bl-004",
+      "title": "Chrome 本地数据访问",
+      "type": "demo",
+      "priority": "high",
+      "status": "pending",
+      "description": "跨平台 Chrome Profile 发现、SQLite 锁文件处理、WebKit 时间戳转换",
+      "sourceNote": "notes/local-resource-and-experience.md",
+      "relatedTopic": "local-resource-and-experience",
+      "demoPath": null
+    },
+    {
+      "id": "bl-005",
+      "title": "多 Agent 并行分治",
+      "type": "demo",
+      "priority": "medium",
+      "status": "pending",
+      "description": "Tab 隔离 + 共享 Proxy 的多 Agent 协作模式",
+      "sourceNote": "notes/architecture-overview.md",
+      "relatedTopic": "architecture-and-core-mechanisms",
+      "demoPath": null
+    },
+    {
+      "id": "bl-006",
+      "title": "SQLite 安全操作",
+      "type": "demo",
+      "priority": "medium",
+      "status": "done",
+      "description": "预编译语句 + 事务批量操作 + 安全清理",
+      "sourceNote": "notes/local-resource-and-experience.md",
+      "relatedTopic": "local-resource-and-experience",
+      "demoPath": "demos/sqlite-crud/"
+    },
+    {
+      "id": "bl-007",
+      "title": "HTTP 到 WebSocket 代理",
+      "type": "demo",
+      "priority": "medium",
+      "status": "pending",
+      "description": "HTTP API 翻译为 WebSocket CDP 命令的完整代理实现",
+      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "relatedTopic": "cdp-proxy-implementation",
+      "demoPath": null
+    },
+    {
+      "id": "bl-008",
+      "title": "Frontmatter 解析与经验匹配",
+      "type": "demo",
+      "priority": "low",
+      "status": "pending",
+      "description": "YAML Frontmatter 提取、动态正则构建、多关键词匹配",
+      "sourceNote": "notes/local-resource-and-experience.md",
+      "relatedTopic": "local-resource-and-experience",
+      "demoPath": null
+    }
+  ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-25T20:00:00+08:00"
+    "lastUpdated": "2026-04-26T10:00:00+08:00"
   }
 }

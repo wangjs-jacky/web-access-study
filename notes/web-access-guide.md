@@ -9,6 +9,8 @@ updated_at: 2026-04-25
 # Web Access 使用指南
 
 > 给 AI Agent 装上完整联网能力的 Skill — 三层通道调度 + 浏览器 CDP + 并行分治
+>
+> **定位**：这篇笔记解决"它是什么、为什么这样设计"的问题。如果你还没安装和用过 web-access，先看 [实战教程](web-access-how-to-use-guide.md)。
 
 ## 📌 项目概览
 

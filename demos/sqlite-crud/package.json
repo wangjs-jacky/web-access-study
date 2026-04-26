@@ -1,0 +1,13 @@
+{
+  "name": "sqlite-crud-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SQLite CRUD 基础操作 demo — 验证 better-sqlite3 同步 API 模式",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0"
+  }
+}
