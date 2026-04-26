@@ -46,6 +46,11 @@
           "type": "guide",
           "path": "notes/web-access-guide.md",
           "createdAt": "2026-04-20T11:30:00+08:00"
+        },
+        {
+          "type": "article",
+          "path": "notes/web-access-article.md",
+          "createdAt": "2026-04-26T17:30:00+08:00"
         }
       ],
       "skillPackaging": {
@@ -78,8 +83,20 @@
       "artifacts": [
         {
           "type": "note",
-          "path": "notes/cdp-proxy-deep-dive.md",
+          "path": "notes/cdp-proxy-implementation.md",
           "createdAt": "2026-04-20T11:40:00+08:00"
+        },
+        {
+          "type": "demo",
+          "path": "demos/websocket-pending-map/",
+          "createdAt": "2026-04-26T16:29:00+08:00",
+          "features": [
+            { "name": "PendingMap 类（register + handleResponse）", "necessity": "must" },
+            { "name": "基本请求-响应匹配", "necessity": "must" },
+            { "name": "并发乱序响应正确匹配", "necessity": "must" },
+            { "name": "超时自动 reject", "necessity": "must" },
+            { "name": "错误响应处理", "necessity": "should" }
+          ]
         }
       ],
       "skillPackaging": {
@@ -140,11 +157,11 @@
       "title": "WebSocket Pending Map",
       "type": "demo",
       "priority": "high",
-      "status": "pending",
+      "status": "done",
       "description": "Pending Map 异步请求-响应匹配模式，WebSocket 消息关联的核心实现",
-      "sourceNote": "notes/cdp-proxy-deep-dive.md",
+      "sourceNote": "notes/cdp-proxy-implementation.md",
       "relatedTopic": "cdp-proxy-implementation",
-      "demoPath": null
+      "demoPath": "demos/websocket-pending-map/"
     },
     {
       "id": "bl-002",

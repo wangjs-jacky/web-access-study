@@ -1,0 +1,10 @@
+{
+  "name": "demo-websocket-pending-map",
+  "version": "1.0.0",
+  "description": "演示 WebSocket 异步请求-响应匹配的 Pending Map 模式",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}
