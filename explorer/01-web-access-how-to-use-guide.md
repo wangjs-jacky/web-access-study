@@ -8,143 +8,15 @@ updated_at: 2026-04-25
 
 # Web Access 实战教程：从安装到精通
 
-> **本教程分两个阶段**：
-> - **Phase 1**：环境配置引导（需要人工操作，5 分钟）
-> - **Phase 2**：逐章实操教程（含实测数据）
+> Web Access 实操教程，带你从安装到实际使用。
 >
-> **必须严格按顺序执行**：Phase 1 全部完成后，才能进入 Phase 2。
+> **前置条件**：需要先完成 [环境准备](00-web-access-environment-setup.md)（安装 Node.js、Chrome 调试、Skill 安装）。
+>
+> **快速导航**：想了解原理？→ [项目导读](02-web-access-guide.md) | 想查命令？→ [CDP 速查](cheatsheet/cdp-cheat-sheet.md) | 想查 Prompt？→ [Prompt 速查](cheatsheet/prompt-cheat-sheet.md)
 
 ---
 
-# Phase 1：环境配置引导
-
-> **为什么要配置这些？**
-> Web Access 的核心能力是"用 curl 控制你的 Chrome 浏览器"。要做到这一点，需要：
-> 1. **Node.js** — 运行 CDP Proxy（HTTP→WebSocket 翻译层）
-> 2. **Chrome 远程调试** — 让 Proxy 能连接你的浏览器
-> 3. **web-access Skill** — 安装到 Claude Code，让 AI 知道怎么用这些工具
->
-> 配置完成后，你就能用一条 `curl` 命令让浏览器执行任何操作。
-
-## 1.1 安装 Node.js 22+
-
-> **为什么需要它？** CDP Proxy 是一个 Node.js 脚本，它需要 Node.js 22+ 因为这个版本内置了原生 WebSocket 支持，不需要额外安装依赖。
-
-**操作步骤**：
-
-1. 检查当前 Node.js 版本：
-```bash
-node --version
-```
-
-2. 如果版本低于 22，使用 nvm 安装：
-```bash
-nvm install 22
-nvm use 22
-```
-
-**验证**：
-```bash
-node --version
-# 输出应 >= v22.0.0
-```
-
-**完成标志**：版本号 >= 22.0.0
-
-## 1.2 安装 web-access Skill
-
-**操作步骤**：
-
-1. 克隆 web-access 仓库：
-```bash
-git clone https://github.com/eze-is/web-access.git /tmp/web-access
-```
-
-2. 链接到 Claude Code skills 目录：
-```bash
-# 创建 skills 目录（如果不存在）
-mkdir -p ~/.claude/skills/
-# 链接（symlink 方式，方便后续更新）
-ln -sf /tmp/web-access ~/.claude/skills/web-access
-```
-
-**验证**：
-```bash
-ls ~/.claude/skills/web-access/SKILL.md
-# 应输出该文件路径
-```
-
-**完成标志**：SKILL.md 文件存在
-
-## 1.3 开启 Chrome 远程调试
-
-> **为什么需要这一步？** Chrome 默认不允许外部程序控制它。开启远程调试后，Chrome 会在一个本地端口上监听指令。CDP Proxy 就是连这个端口来操控浏览器的。
-
-⚠️ **这一步需要手动操作**：
-
-1. 在 Chrome 地址栏输入：
-```
-chrome://inspect/#remote-debugging
-```
-
-2. 勾选 **"Allow remote debugging for this browser instance"**
-
-3. 可能需要重启 Chrome
-
-**验证**：
-```bash
-cat ~/Library/Application\ Support/Google/Chrome/DevToolsActivePort
-# 应输出两行：第一行是端口号，第二行是 WebSocket 路径
-```
-
-**完成标志**：文件存在且包含端口号
-
-## 1.4 安装 sqlite3（可选）
-
-用于 Chrome 历史记录检索功能。不安装不影响核心 CDP 功能。
-
-```bash
-# macOS
-brew install sqlite3
-
-# 或使用系统自带版本
-which sqlite3
-```
-
-**完成标志**：`which sqlite3` 有输出
-
-## 1.5 运行环境检查
-
-所有准备工作完成后，运行 web-access 自带的环境检查脚本：
-
-```bash
-node ~/.claude/skills/web-access/scripts/check-deps.mjs
-```
-
-脚本会依次检查：
-- `node: ok` — Node.js 版本
-- `chrome: ok (port XXXX)` — Chrome 调试端口
-- `proxy: ready` — CDP Proxy 自动启动并连接
-
-**完成标志**：三项全部显示 ok/ready
-
-## 配置完成检查清单
-
-```bash
-# 逐项验证
-node --version                                           # ☐ 版本 >= 22
-ls ~/.claude/skills/web-access/SKILL.md                  # ☐ Skill 已安装
-cat ~/Library/Application\ Support/Google/Chrome/DevToolsActivePort  # ☐ Chrome 调试已开启
-node ~/.claude/skills/web-access/scripts/check-deps.mjs  # ☐ 三项全部 ok
-```
-
-**全部打勾 → 配置完成，进入实操阶段！**
-
----
-
-# Phase 2：逐章实操教程
-
-> **前置条件**：Phase 1 检查清单全部通过。
+> **前置条件**：[环境准备](00-web-access-environment-setup.md) 全部完成（Node.js 22+、Chrome 调试已开启、Skill 已安装）。
 > **实测环境**：macOS 14.1 / Node.js v24.9.0 / Chrome 147 / web-access 2.5.0
 > **当前状态**：✅ 全部 5 章已实测完成
 
@@ -477,11 +349,11 @@ curl -s "http://localhost:3456/close?target=ABB4EC2317DF6EF70DAA81833EFD416D"
 
 Web Access 提供了三种点击方式，适用于不同场景：
 
-| 方式 | API | 原理 | 适用场景 |
-|------|-----|------|----------|
-| JS 点击 | `/click` | `el.click()` | 大多数场景，简单快速 |
-| 真实鼠标点击 | `/clickAt` | `Input.dispatchMouseEvent` | 需要真实用户手势（文件对话框等） |
-| 文件上传 | `/setFiles` | `DOM.setFileInputFiles` | 上传文件，绕过文件选择对话框 |
+| 方式     | API         | 原理                         | 适用场景             |
+| ------ | ----------- | -------------------------- | ---------------- |
+| JS 点击  | `/click`    | `el.click()`               | 大多数场景，简单快速       |
+| 真实鼠标点击 | `/clickAt`  | `Input.dispatchMouseEvent` | 需要真实用户手势（文件对话框等） |
+| 文件上传   | `/setFiles` | `DOM.setFileInputFiles`    | 上传文件，绕过文件选择对话框   |
 
 **JS 点击**（最常用）：
 ```bash
@@ -498,6 +370,41 @@ curl -s -X POST "http://localhost:3456/clickAt?target=TARGET_ID" -d 'button.uplo
 curl -s -X POST "http://localhost:3456/setFiles?target=TARGET_ID" \
   -d '{"selector":"input[type=file]","files":["/path/to/file.png"]}'
 ```
+
+> [!info] 补充说明：文件上传功能
+>
+> **文件上传的工作原理**：
+>
+> `/setFiles` 端点使用 CDP 的 `DOM.setFileInputFiles` 命令，直接在浏览器层面设置文件输入框的值，绕过了操作系统的文件选择对话框。这意味着：
+>
+> - 不需要用户手动选择文件
+> - 不会触发文件选择对话框
+> - 适合自动化测试和批量上传场景
+>
+> **为什么教程中没有实测？**
+>
+> 文件上传需要：
+> 1. 找到支持文件上传的网站（需注册账号、有上传权限）
+> 2. 准备测试文件
+> 3. 处理上传后的状态验证（可能涉及 CSRF token、登录态等）
+>
+> 这是一个完整的端到端场景，超出了"基础教程"的范围。如果需要测试文件上传，建议：
+>
+> ```bash
+> # 1. 创建一个本地测试页面
+> echo '<input type="file" id="upload">' > /tmp/upload-test.html
+> open /tmp/upload-test.html
+>
+> # 2. 使用 CDP 上传文件
+> TARGET_ID=$(curl -s http://localhost:3456/targets | jq -r '.[] | select(.url | contains("upload-test")) | .targetId')
+> curl -s -X POST "http://localhost:3456/setFiles?target=$TARGET_ID" \
+>   -d '{"selector":"#upload","files":["/tmp/test.png"]}'
+>
+> # 3. 验证文件已设置
+> curl -s -X POST "http://localhost:3456/eval?target=$TARGET_ID" \
+>   -d 'document.querySelector("#upload").files[0].name'
+> # 输出应包含 "test.png"
+> ```
 
 ---
 
@@ -689,6 +596,30 @@ curl -s -X POST "http://localhost:3456/eval?target=TARGET_ID" \
 
 > 💡 **注意**：`/scroll` 到底部会触发懒加载。提取图片 URL 前必须先滚动，否则部分图片可能尚未加载。
 
+> [!info] 补充说明：为什么媒体资源获取没有实测？
+>
+> **媒体资源提取的完整流程**：
+>
+> 1. **滚动触发懒加载** → 2. **提取图片 URL** → 3. **下载图片文件**
+>
+> 前两步（滚动 + 提取 URL）是 CDP 操作，已经在教程中展示。第三步（下载图片）需要额外的 HTTP 请求，不属于 CDP 范畴：
+>
+> ```bash
+> # 提取图片 URL 后，用 curl 下载
+> curl -s -X POST "http://localhost:3456/eval?target=TARGET_ID" \
+>   -d 'Array.from(document.querySelectorAll("img")).map(img=>img.src)' \
+>   | jq -r '.value[]' \
+>   | while read url; do curl -O "$url"; done
+> ```
+>
+> **没有实测的原因**：
+>
+> 1. **边界条件复杂**：不同网站的图片加载策略不同（lazy load、scroll listener、intersection observer 等）
+> 2. **跨域问题**：部分图片 URL 可能有防盗链或 CORS 限制
+> 3. **非核心功能**：CDP 的核心价值是"操控浏览器"，下载文件可以用其他工具完成
+>
+> 如果需要完整的媒体资源提取方案，建议使用专门的下载工具（如 `gallery-dl`、`yt-dlp`）配合 CDP 获取 URL。
+
 ### 4.5 视频内容获取
 
 通过 eval 操控 `<video>` 元素：
@@ -820,44 +751,4 @@ Web Access 的核心设计是"按场景选最小代价的工具"：
 
 ---
 
-## 附录：命令速查表
-
-### CDP Proxy API 速查
-
-| 操作 | 命令 |
-|------|------|
-| 列出 tab | `curl -s http://localhost:3456/targets` |
-| 创建 tab | `curl -s "http://localhost:3456/new?url=URL"` |
-| 页面信息 | `curl -s "http://localhost:3456/info?target=ID"` |
-| 执行 JS | `curl -s -X POST "http://localhost:3456/eval?target=ID" -d 'JS_CODE'` |
-| JS 点击 | `curl -s -X POST "http://localhost:3456/click?target=ID" -d 'SELECTOR'` |
-| 真实鼠标点击 | `curl -s -X POST "http://localhost:3456/clickAt?target=ID" -d 'SELECTOR'` |
-| 文件上传 | `curl -s -X POST "http://localhost:3456/setFiles?target=ID" -d 'JSON'` |
-| 滚动 | `curl -s "http://localhost:3456/scroll?target=ID&y=3000"` |
-| 滚动到底 | `curl -s "http://localhost:3456/scroll?target=ID&direction=bottom"` |
-| 截图 | `curl -s "http://localhost:3456/screenshot?target=ID&file=PATH"` |
-| 导航 | `curl -s "http://localhost:3456/navigate?target=ID&url=URL"` |
-| 后退 | `curl -s "http://localhost:3456/back?target=ID"` |
-| 关闭 tab | `curl -s "http://localhost:3456/close?target=ID"` |
-| 健康检查 | `curl -s http://localhost:3456/health` |
-
-### find-url.mjs 参数速查
-
-| 参数 | 说明 | 示例 |
-|------|------|------|
-| `关键词` | 空格分词 AND | `github react` |
-| `--only bookmarks` | 只搜书签 | |
-| `--only history` | 只搜历史 | |
-| `--since 1d` | 时间窗 | `1d` `7h` `30m` |
-| `--since 2025-04-01` | 绝对日期 | |
-| `--sort visits` | 按访问次数 | |
-| `--sort recent` | 按最近访问（默认） | |
-| `--limit N` | 结果数 | 默认 20 |
-
-### 环境管理
-
-| 操作 | 命令 |
-|------|------|
-| 环境检查 | `node ~/.claude/skills/web-access/scripts/check-deps.mjs` |
-| 检查 Chrome 调试端口 | `cat ~/Library/Application\ Support/Google/Chrome/DevToolsActivePort` |
-| 停止 Proxy | `pkill -f cdp-proxy.mjs` |
+> 📋 **速查手册**：命令和参数的完整速查 → [CDP 命令速查](cheatsheet/cdp-cheat-sheet.md) | [Prompt 速查](cheatsheet/prompt-cheat-sheet.md)

@@ -5,6 +5,13 @@
 ## 阅读路径
 
 ```
+第零层：环境准备
+  │  目标：安装和配置 Web Access 运行环境
+  ▼
+  00-web-access-environment-setup.md
+  │
+  │  "环境配好了，开始用"
+  ▼
 第一层：先用起来（入口）
   │  目标：5 分钟内用 curl 控制你的浏览器
   ▼
@@ -44,9 +51,17 @@
   ⑩ skill-design-tradeoff-based.md    ← Tradeoff-based Prompt 范式（认知颠覆点）
   ⑪ skill-exploration.md              ← Skill→Script 映射验收 + 实测
   │
+  │  "我想快速查个命令或 Prompt"
+  ▼
+第六层：速查手册（随时查阅）
+  │  目标：一张卡片解决一个问题
+  ▼
+  cheatsheet/prompt-cheat-sheet.md    ← Prompt 速查（触发词、通道选择、示例）
+  cheatsheet/cdp-cheat-sheet.md       ← CDP 命令速查（API、HTTP 端点、操作对照）
+  │
   │  "我想写篇技术文章分享"
   ▼
-第六层：外发产物（独立阅读）
+第七层：外发产物（独立阅读）
   │  目标：对外分享的技术内容
   ▼
   ⑫ web-access-article.md             ← 技术展示文章（掘金/知乎风格）
@@ -57,7 +72,8 @@
 
 | # | 文件 | 给谁看 | 解决什么问题 |
 |---|------|--------|------------|
-| ① | `01-web-access-how-to-use-guide.md` | **所有人（入口）** | 怎么安装、怎么用、curl 能做什么 |
+| — | `00-web-access-environment-setup.md` | **所有人（前置）** | Node.js 安装、Chrome 调试配置、Skill 安装、常见问题排查 |
+| ① | `01-web-access-how-to-use-guide.md` | **所有人（入口）** | 怎么用、curl 能做什么（含实测数据） |
 | ② | `02-web-access-guide.md` | 用过之后想理解原理的人 | 产品形态、核心概念、设计决策 |
 | ③ | `03-architecture-overview.md` | 想看架构全貌的人 | 四层调度、CDP Proxy 角色、并行分治 |
 | ④ | `04-end-to-end-data-flow.md` | 想追踪完整请求链路的人 | 三层调度数据流、组件通信协议、CDP API 清单 |
@@ -68,6 +84,8 @@
 | ⑨ | `09-skill-prompt-engineering.md` | 想学 Prompt 设计的人 | SKILL.md 的四步框架、tradeoff 决策、约束引导 |
 | ⑩ | `skill-design-tradeoff-based.md` | 想学高阶 Prompt 范式的人 | "技术事实"驱动的 Prompt 设计模式 |
 | ⑪ | `skill-exploration.md` | 想验证 Skill 可用性的人 | Prompt 词速查、脚本映射、逐个实测 |
+| — | `cheatsheet/prompt-cheat-sheet.md` | 想快速查 Prompt 用法的人 | 所有触发词、三层通道选择、示例 Prompt |
+| — | `cheatsheet/cdp-cheat-sheet.md` | 想快速查 CDP 命令的人 | API 列表、HTTP 端点、操作对照、使用示例 |
 | ⑫ | `web-access-article.md` | 想对外分享的人 | 掘金/知乎风格技术展示文章 |
 | ⑬ | `web-access-author-article/` | 想看作者原文的人 | 一泽Eze 微信公众号原文存档 |
 

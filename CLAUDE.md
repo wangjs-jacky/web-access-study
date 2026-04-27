@@ -21,6 +21,9 @@ web-access-study/
 │   └── .claude-plugin/ # 插件配置
 ├── explorer/         # 成体系笔记（Survey 模式产物，→ 教程）
 │   ├── README.md     # 阅读路径索引
+│   ├── cheatsheet/   # 速查手册（Cheat Sheet）
+│   ├── output/       # 外发产物（技术展示文章、对外发布内容）
+│   ├── practices/    # 探索/实操（工具能力扩展、实战演练）
 │   └── ...           # 系统调研笔记
 ├── notes/            # 零散问答（Incremental 模式产物）
 │   └── ...           # 增量深入笔记
@@ -40,17 +43,39 @@ web-access-study/
 - [x] 端到端数据流分析（完整请求链路、组件通信、CDP API 清单）
 - [x] Skills 技能探索（Prompt 词速查、脚本映射、实测验证、缺口分析）
 
+## 写作规范
+
+### Frontmatter 必填字段
+
+所有笔记文件（`notes/` 和 `explorer/`）的 YAML frontmatter 必须包含以下字段：
+
+```yaml
+---
+title: "文章标题"
+article_id: OBA-xxxxxxxx    # 唯一标识，格式：OBA-{8位随机字符}
+date: "YYYY-MM-DD"
+tags: ["标签1", "标签2"]
+---
+```
+
+- **article_id**：每篇文章的唯一标识，格式为 `OBA-` + 8 位随机字母数字。新建笔记时生成，不可与已有文章重复。
+- 其他字段（`source_notes`、`article_id` 等）按需添加。
+
 ## 笔记索引
 
-> 阅读顺序详见 [notes/README.md](notes/README.md)。以下按 6 层阅读路径排列。
+> 阅读顺序详见 [explorer/README.md](explorer/README.md)。以下按 7 层阅读路径排列。
+
+### 第零层：环境准备
+
+0. [00-web-access-environment-setup.md](explorer/00-web-access-environment-setup.md) — 环境准备（Node.js 安装、Chrome 调试配置、Skill 安装、调试指南、常见问题）
 
 ### 第一层：先用起来（入口）
 
-1. [01-web-access-how-to-use-guide.md](explorer/01-web-access-how-to-use-guide.md) — 实战教程：从安装到精通（环境配置 + 5 章实操，含实测数据）
+1. [01-web-access-how-to-use-guide.md](explorer/01-web-access-how-to-use-guide.md) — 实战教程：从安装到精通（5 章实操，含实测数据）
 
 ### 第二层：建立全景认知
 
-2. [02-web-access-guide.md](explorer/02-web-access-guide.md) — 项目导读指南（产品形态、核心概念、设计决策、本地搭建）
+2. [02-web-access-guide.md](explorer/02-web-access-guide.md) — 项目导读指南（产品形态、核心概念、设计决策）
 3. [03-architecture-overview.md](explorer/03-architecture-overview.md) — 架构全貌（设计哲学、四层调度、CDP 实现、并行分治）
 
 ### 第三层：核心实现链路
@@ -70,10 +95,18 @@ web-access-study/
 10. [skill-design-tradeoff-based.md](notes/skill-design-tradeoff-based.md) — Tradeoff-based Prompt 范式（技术事实驱动的高阶 prompt 设计模式）
 11. [skill-exploration.md](notes/skill-exploration.md) — Skill→Script 映射验收（Prompt 词速查、脚本映射、逐个实测验证）
 
-### 第六层：外发产物
+### 第六层：速查手册
 
-12. [web-access-article.md](notes/web-access-article.md) — 技术展示文章（掘金/知乎风格，6 段式叙事）
-13. [web-access-author-article/](notes/web-access-author-article/) — 作者原文存档（一泽Eze 微信公众号文章，含图片）
+12. [prompt-cheat-sheet.md](explorer/cheatsheet/prompt-cheat-sheet.md) — Prompt 速查（所有触发词、三层通道选择、示例 Prompt）
+13. [cdp-cheat-sheet.md](explorer/cheatsheet/cdp-cheat-sheet.md) — CDP 命令速查（API 列表、HTTP 端点、操作对照、使用示例）
+
+### 第七层：外发产物
+
+14. [web-access-article.md](explorer/output/web-access-article.md) — 技术展示文章（掘金/知乎风格，6 段式叙事）
+15. [web-access-author-article/](web-access-author-article/) — 作者原文存档（一泽Eze 微信公众号文章，含图片）
+16. [bilibili-video-extraction.md](explorer/practices/bilibili-video-extraction.md) — 实战演练：用 Web Access 提取 B 站 UP 主全部投稿视频数据（DOM 探索、SPA 翻页、183 个视频提取）
+17. [capability-exploration.md](explorer/practices/capability-exploration.md) — 能力全景图（核心能力矩阵、实战案例库、扩展畅想、技能封装建议）
+18. [juejin-booklet-extraction.md](explorer/practices/juejin-booklet-extraction.md) — 实战演练：掘金小册全文提取（API 逆向、Cookie 自动提取、图片本地化、免费+付费支持、Skill 封装）
 
 ## Demos
 

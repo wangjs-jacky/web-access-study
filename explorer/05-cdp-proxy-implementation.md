@@ -8,7 +8,9 @@ updated_at: 2026-04-26
 
 # CDP Proxy 完整实现详解
 
-> **你为什么会在这里**：你已经用 curl 控制过浏览器了（how-to-guide），现在想理解 Proxy 内部是怎么工作的。
+> **你为什么会在这里**：你已经用 curl 控制过浏览器了（[how-to-guide](01-web-access-how-to-use-guide.md)），现在想理解 Proxy 内部是怎么工作。
+>
+> **快速导航**：只想查命令？→ [CDP 速查](../notes/cdp-cheat-sheet.md) | 想看逐行代码？→ [代码精读](06-cdp-proxy-code-walkthrough.md)
 
 ## 它在做什么（一句话）
 

@@ -54,7 +54,7 @@
         },
         {
           "type": "article",
-          "path": "notes/web-access-article.md",
+          "path": "explorer/output/web-access-article.md",
           "createdAt": "2026-04-26T17:30:00+08:00"
         },
         {
@@ -293,9 +293,141 @@
           "createdAt": "2026-04-26T20:47:00+08:00"
         }
       ]
+    },
+    {
+      "id": "harness-design",
+      "parentId": "architecture-and-core-mechanisms",
+      "name": "Harness 设计模式：用 Prompt 约束驾驭 AI",
+      "category": "design",
+      "tags": [
+        "harness",
+        "prompt-engineering",
+        "experience-reuse",
+        "skill-design"
+      ],
+      "state": "completed",
+      "progress": {
+        "noteCount": 2,
+        "lastActivityAt": "2026-04-27T18:00:00+08:00"
+      },
+      "questions": [],
+      "artifacts": [
+        {
+          "type": "article",
+          "path": "explorer/output/harness-design-article.md",
+          "createdAt": "2026-04-27T18:00:00+08:00"
+        },
+        {
+          "type": "note",
+          "path": "notes/harness-design-pattern.md",
+          "createdAt": "2026-04-27T18:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "element-positioning-mechanism",
+      "parentId": "cdp-proxy-implementation",
+      "name": "元素定位机制：CSS Selector vs 截图识别",
+      "category": "implementation",
+      "tags": [
+        "cdp",
+        "css-selector",
+        "element-positioning",
+        "dom",
+        "screenshot"
+      ],
+      "state": "completed",
+      "progress": {
+        "noteCount": 1,
+        "lastActivityAt": "2026-04-27T20:00:00+08:00"
+      },
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/element-positioning-mechanism.md",
+          "createdAt": "2026-04-27T20:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "cheat-sheets",
+      "parentId": "architecture-and-core-mechanisms",
+      "name": "速查手册（Cheat Sheets）",
+      "category": "reference",
+      "tags": [
+        "cheat-sheet",
+        "prompt",
+        "cdp",
+        "quick-reference"
+      ],
+      "state": "completed",
+      "progress": {
+        "noteCount": 2,
+        "lastActivityAt": "2026-04-27T12:00:00+08:00"
+      },
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "explorer/cheatsheet/prompt-cheat-sheet.md",
+          "createdAt": "2026-04-27T12:00:00+08:00"
+        },
+        {
+          "type": "note",
+          "path": "explorer/cheatsheet/cdp-cheat-sheet.md",
+          "createdAt": "2026-04-27T12:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "anti-detection-mechanism",
+      "parentId": "cdp-proxy-implementation",
+      "name": "浏览器自动化检测与反风控机制",
+      "category": "implementation",
+      "tags": [
+        "anti-detection",
+        "stealth",
+        "cdp",
+        "browser-automation"
+      ],
+      "state": "completed",
+      "progress": {
+        "noteCount": 1,
+        "lastActivityAt": "2026-04-27T21:00:00+08:00"
+      },
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/anti-detection-mechanism.md",
+          "createdAt": "2026-04-27T21:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "browser-js-execution-capabilities",
+      "parentId": "cdp-proxy-implementation",
+      "name": "浏览器 JS 执行能力全景：Performance API、CDP 与 DevTools 能力边界",
+      "category": "implementation",
+      "tags": [
+        "performance-api",
+        "cdp",
+        "browser-api",
+        "js-execution",
+        "devtools"
+      ],
+      "state": "completed",
+      "progress": {
+        "noteCount": 1,
+        "lastActivityAt": "2026-04-28T10:00:00+08:00"
+      },
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/browser-js-execution-capabilities.md",
+          "createdAt": "2026-04-28T10:00:00+08:00"
+        }
+      ]
     }
   ],
-  "backlog": [
     {
       "id": "bl-001",
       "title": "WebSocket Pending Map",
@@ -387,6 +519,6 @@
   ],
   "timestamps": {
     "createdAt": "2026-04-20T11:26:00+08:00",
-    "lastUpdated": "2026-04-26T20:47:00+08:00"
+    "lastUpdated": "2026-04-28T10:00:00+08:00"
   }
 }

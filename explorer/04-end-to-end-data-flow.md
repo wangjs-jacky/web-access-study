@@ -10,7 +10,8 @@ article_id: OBA-c1t8lviw
 
 - **给谁看**：想理解 web-access 各组件如何连接成完整系统的人
 - **解决什么问题**：回答「一个请求从头到尾经过了哪些环节、数据如何在组件间流转」
-- **前置笔记**：[architecture-overview.md](architecture-overview.md)（架构概述），本篇聚焦数据流
+- **前置笔记**：[architecture-overview.md](03-architecture-overview.md)（架构概述），本篇聚焦数据流
+- **后续深入**：[CDP Proxy 实现](05-cdp-proxy-implementation.md) | [CDP 速查](../notes/cdp-cheat-sheet.md)
 
 ## 一、端到端请求链路全景图
 

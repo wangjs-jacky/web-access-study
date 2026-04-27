@@ -10,7 +10,8 @@ article_id: OBA-yjjdxykg
 
 - **给谁看**：想学习高级 Prompt Engineering 技巧、理解 web-access 决策框架设计的人
 - **解决什么问题**：回答「SKILL.md 的 prompt 为什么这样写、背后的设计理念是什么、哪些技巧可以复用」
-- **前置笔记**：[web-access-guide.md](web-access-guide.md)（产品认知），本篇聚焦 prompt 设计模式
+- **前置笔记**：[web-access-guide.md](02-web-access-guide.md)（产品认知），本篇聚焦 prompt 设计模式
+- **后续深入**：[Tradeoff-based Prompt 范式](../notes/skill-design-tradeoff-based.md) | [Skill→Script 映射](../notes/skill-exploration.md) | [Prompt 速查](../notes/prompt-cheat-sheet.md)
 
 ## 一、整体组织结构
 
